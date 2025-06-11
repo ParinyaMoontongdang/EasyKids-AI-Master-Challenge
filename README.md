@@ -1,2 +1,2 @@
-# EasyKids-AI-Master-Challenge
-For EasyKids AI Master Challenge 2025
+# EasyKids-AI-Master-Challenge 🚙
+Example code for EasyKids AI master challenge 2025.
