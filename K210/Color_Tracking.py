@@ -1,6 +1,7 @@
 import sensor, image, time, math, lcd
 
-thresholds = (51, 72, 8, 53, -8, 19) # generic_red_thresholds -> index is 0 so code == (1 << 0)
+thresholds = [(51, 72, 8, 53, -8, 19), # generic_red_thresholds -> index is 0 so code == (1 << 0)
+              (30, 100, -64, -8, -32, 32)]
 
 sensor.reset()
 sensor.set_pixformat(sensor.RGB565)
