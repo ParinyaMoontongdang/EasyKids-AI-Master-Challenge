@@ -2,6 +2,7 @@
 
 void setup() {
   EasyKids_Setup();
+  display3in1();
   beginSerialRX();
   
   ledSetBrightness(50);
