@@ -19,9 +19,11 @@ while(True):
     tag = img.find_apriltags(families=image.TAG16H5)
     
     if len(tag) > 0:
-        img.draw_string(7,8, str(tag[0].id()), color=(0,128,0), scale=3)
         img.draw_rectangle(tag[0].rect(), color = (255, 0, 0),thickness=3)
+        img.draw_string(7,8, str(tag[0].id()), color=(0,128,0), scale=3)
+        
+        resized = img.resize(320,240)
+        resized.clear()
+        resized.draw_string(120,60, str(tag[0].id()), color=(0,128,0), scale=10)
         print("Tag ID:", tag[0].id())
-    
-    resized = img.resize(320,240)
-    lcd.display(resized)
+        lcd.display(resized)
