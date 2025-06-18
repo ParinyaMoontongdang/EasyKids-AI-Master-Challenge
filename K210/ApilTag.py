@@ -1,6 +1,6 @@
 import sensor, image, time, lcd
 
-sensor.reset()
+sensor.reset(dual_buff = True)
 sensor.set_pixformat(sensor.RGB565)
 sensor.set_framesize(sensor.QQVGA)
 sensor.skip_frames(time = 2000)
