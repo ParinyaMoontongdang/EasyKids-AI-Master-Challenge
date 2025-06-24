@@ -11,13 +11,13 @@ clock = time.clock()
 
 IMG_SIZE = 224
 
-obj_name = ("stop", "right", "model")
-anchor = (1.92,1.97,1.56,1.55,1.23,1.28,1.81,2.97,2.19,2.27)
+obj_name = ('mechanic', 'musician', 'barista')
+anchor = (2.34, 5.41, 2.16, 4.58, 2.66, 5.97, 2.98, 5.81, 1.78, 4.62)
 kpu = KPU()
-kpu.load_kmodel("/sd/test_model.kmodel")
-kpu.init_yolo2(anchor, anchor_num=5, img_w=IMG_SIZE, img_h=IMG_SIZE,
+kpu.load_kmodel("/sd/art_toy.kmodel")
+kpu.init_yolo2(anchor, anchor_num=(int)(len(anchor)/2), img_w=IMG_SIZE, img_h=IMG_SIZE,
                net_w=IMG_SIZE, net_h=IMG_SIZE, layer_w=7, layer_h=7,
-               threshold=0.5, nms_value=0.2, classes=3)
+               threshold=0.5, nms_value=0.2, classes=len(obj_name))
 
 try:
     while True:
@@ -42,7 +42,6 @@ try:
                 img.draw_string(x, y - 10, obj_name[l[4]], color=(255, 0, 0), scale=1.5)
                 print("Detected:", obj_name[l[4]])
 
-        img.draw_string(0, 0, "%2.1f fps" % clock.fps(), color=(0, 60, 128), scale=1.0)
         lcd.display(img)
         gc.collect()
 
